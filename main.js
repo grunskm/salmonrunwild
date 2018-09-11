@@ -39,27 +39,25 @@ function setup() {
   for (i = 0; i < numFlies; i++) {
     flies.push(new flyObj());
   }
+  //bottom objects in array
   for (i = 0; i<numBottom+2; i++){
     bottom.push(new bottomObj(i,0,-190));
   }
-
+  //shore objects in array
     for (i = 0; i<numBottom+2; i++){
     shore.push(new shoreObj(i,0,-400));
   }
-
+  // eggs in array
   for (i = 0; i<15; i++){
     roe.push(new roeObj(200,200,10));
   }
+  //bubbles in array
   for(i=0; i<3;i++){
     bubbles.push(new bubbleObj());
   }
-
-  //load images
-  // imgFly = loadImage("assets/fly.png");
-  // imgWater = loadImage("assets/water.png")
-
+  //loading animation images for gull and fish
   for (var q = 0; q < 11; q++) {
-    imgFish[q] = loadImage("assets/fish/fish2/fish" + [q] + ".png");
+    imgFish[q] = loadImage("assets/fish/fish" + [q] + ".png");
   }
 
   for(e = 0;e<2;e++){
@@ -81,7 +79,7 @@ function setup() {
   start = new Start();
 }
 
-///////////////////////////////////////////////////////////////////
+//////////////////////////////setup over////////////////////////draw below
 
 function draw() {
   background(200);
@@ -93,7 +91,7 @@ function draw() {
       stage = 1;
     }
   } else if (stage == 1) {
-    /////////////////////////////////////////  display shore below
+/////////////////////////////////////////  display shore below
     for(e=0;e<numBottom+2;e++){
         if(shore[e].stage ===0){
           shore[e].there();
@@ -101,7 +99,7 @@ function draw() {
           shore[e].halt();
         }
       }
-    ///////////////////////////////////////////display gull below
+///////////////////////////////////////////display gull below
     if(bottom[0].z>-200 || health>5){
         if(gull.stage === 0){
           gull.floating();
@@ -113,7 +111,7 @@ function draw() {
                     stage = 2;
       }
     }
-    /////////////////////////////////////////////////display salmon below
+/////////////////////////////////////////////////display salmon below
 
       for(i=0;i<3;i++){
         bubbles[i].rise();
@@ -121,7 +119,7 @@ function draw() {
      salmon.display();
 
 
-      ///////////////////////////////////////////////display bottom below
+///////////////////////////////////////////////display bottom below
 
       for(e=0;e<numBottom+2;e++){
         if(bottom[e].stage ===0){
@@ -139,7 +137,7 @@ function draw() {
         }
       }
 
-      //////////////////////////////////////////// display roe below
+//////////////////////////////////////////// display roe below
     push();
       noStroke();
       translate(0,waterDepth);
@@ -161,7 +159,7 @@ function draw() {
                   roe[i].stage = 0;
                   roe[i].expand = 0
           }
-       }
+        }
       }
     }
     // if(roe[12].hit){
