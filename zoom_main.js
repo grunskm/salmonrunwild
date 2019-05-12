@@ -1,6 +1,6 @@
 var stage = 0;
 var canvas;
-var count =0;
+var count = 0;
 
 var mobileImgs = 9;
 var mobileImg = [];
@@ -9,6 +9,7 @@ var notoReg;
 var notoItal;
 
 var mobile = false;
+var fullSite = false;
 
 var img = [
 [ [],[],[],[]], //removed 'early work'
@@ -77,9 +78,12 @@ function imgLoaded(){
  		loadImg();
 	}else{
 		print("All Done!");
-		resize();
-		stage = 1;
+		fullSite = true;
 		}
+	if(img[0][0].length == title[0][0].length){
+		stage = 1;
+		resize();
+	}
 }
 
 ///Main Loop//////////////////////////////////

@@ -34,22 +34,22 @@ function NavBar(){
 	this.display = function(){
 	if(mobile==false){
 		push();
-// 			push();
-// 			stroke(200);
-// 			line(this.w,0,this.w,height);
-// 			line(this.w+4,0,this.w+4,height);
-// 			line(this.w+8,0,this.w+8,height);
-// 			pop();
+		if(fullSite==true){
 		for(e=0;e<this.link.length;e++){
 			this.link[e].display(e,this.h);
 			this.link[e].hover(e);
-		}
-		if(this.groupName[page].length>1){
+			}
+		}else{
+			fill(50);
+			text("Matthis Grunsky",width*0.04,100);
+			text("Paintings",width*0.04,130);
+				}
+		if(this.groupName[page].length>1 && fullSite==true){
 		for(t=0;t<this.groupName[page].length;t++){
 			this.groupLink[t].display(t,this.h);
 			this.groupLink[t].hover(t);
 		}
-		}
+		}else{}
 			fill(50);
 			textFont(notoItal);
 			text(title[page][group][n],this.titlex, this.titley);
